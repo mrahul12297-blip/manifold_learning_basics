@@ -73,9 +73,6 @@ def write_user_name(name: str) -> str:
 
 
 
-
-
-
 tools = [get_weather, calculate_shipping_cost, write_user_name]
 
 agent = create_agent(
