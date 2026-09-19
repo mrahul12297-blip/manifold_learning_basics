@@ -1,4 +1,9 @@
 from langchain_core.tools import tool
+from langchain_openai import ChatOpenAI
+from langchain_core.messages import SystemMessage, HumanMessage
+from dotenv import load_dotenv
+load_dotenv()
+
 
 @tool 
 # tool decorator is used to define a function as a tool that can be used in the LLM
@@ -17,7 +22,7 @@ def get_weather(city: str) -> str:
     }
     return weather_db.get(city.lower(), "general weather forecast: sunny")
 
-llm_openai = ChatOpenAI(model="gpt-5.4-mini")
+llm_openai = ChatOpenAI(model="gpt-5.6-luna")
 
 message  = [
     SystemMessage(content="You are a helpful assistant that can get the weather for a given city"),
